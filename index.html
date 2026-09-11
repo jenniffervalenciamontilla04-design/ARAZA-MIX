@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARAZA MIX - El Sabor de la Amazonía</title>
+    <!-- Importación de tipografía llamativa y creativa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta de Colores Pasteles */
+            --amarillo-pastel: #FFF59D;
+            --verde-menta: #A5D6A7;
+            --verde-menta-oscuro: #2E7D32;
+            --durazno-pastel: #FFCC80;
+            --naranja-suave: #FF8A65;
+            --rojo-pastel: #FFAB91;
+            --blanco: #FFFFFF;
+            --fondo-pastel: #FBF9F1;
+            --texto-oscuro: #37474F;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: var(--fondo-pastel);
+            color: var(--texto-oscuro);
+        }
+
+        /* Keyframes para Animaciones Creativas */
+        @keyframes gradienteTexto {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(1.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulso {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Encabezado */
+        header {
+            background-color: var(--verde-menta);
+            color: var(--texto-oscuro);
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Contenedor del Logo y Título */
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--blanco);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.8rem;
+            display: inline-block;
+            background: linear-gradient(45deg, #2E7D32, #FF8A65, #FBC02D, #2E7D32);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradienteTexto 6s ease infinite, flotar 4s ease-in-out infinite;
+            filter: drop-shadow(2px 3px 0px rgba(255, 255, 255, 0.8));
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--texto-oscuro);
+        }
+
+        nav {
+            background-color: var(--durazno-pastel);
+            padding: 0.8rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--texto-oscuro);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--verde-menta-oscuro);
+        }
+
+        /* Banner Promocional */
+        .hero-promo {
+            background-color: var(--amarillo-pastel);
+            border: 2px dashed var(--naranja-suave);
+            border-radius: 12px;
+            color: var(--texto-oscuro);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: pulso 3s ease-in-out infinite;
+        }
+
+        .hero-promo h2 {
+            font-size: 2.2rem;
+            color: #D84315;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-descuento {
+            background-color: var(--naranja-suave);
+            color: var(--blanco);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Secciones */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--verde-menta-oscuro);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* Productos y Tarjetas */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-producto {
+            background: var(--blanco);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid var(--durazno-pastel);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-producto:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.1);
+        }
+
+        .tag-oferta {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--rojo-pastel);
+            color: #C62828;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .img-producto {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card-producto:hover .img-producto {
+            transform: scale(1.03);
+        }
+
+        .card-producto h3 {
+            color: var(--verde-menta-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .precio-anterior {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.95rem;
+            margin-right: 5px;
+        }
+
+        .precio {
+            font-size: 1.25rem;
+            color: var(--naranja-suave);
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .btn-comprar {
+            background-color: var(--verde-menta);
+            color: var(--texto-oscuro);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-comprar:hover {
+            background-color: var(--durazno-pastel);
+            transform: scale(1.05);
+        }
+
+        /* Nosotros y Blog */
+        .info-box {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .blog-post {
+            border-bottom: 1px solid #EEEEEE;
+            padding: 1rem 0;
+        }
+
+        /* Comentarios */
+        .comentario {
+            background-color: #E8F5E9;
+            border-left: 4px solid var(--verde-menta-oscuro);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.2s ease;
+        }
+
+        .comentario:hover {
+            transform: translateX(5px);
+        }
+
+        .comentario-autor {
+            font-weight: bold;
+            color: var(--verde-menta-oscuro);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #263238;
+            color: var(--blanco);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-header">
+            <img src="https://static.vecteezy.com/system/resources/previews/039/351/671/non_2x/illustration-araza-fruit-or-araca-boi-scientific-name-araza-eugenia-stipitata-isolated-on-white-background-vector.jpg" alt="Logo Araza Mix" class="logo-img">
+            <h1>Araza Mix</h1>
+        </div>
+        <p>¡El auténtico sabor y frescura del arazá en tu hogar!</p>
+    </header>
+
+    <nav>
+        <a href="#promociones">Promociones</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#blog">Blog</a>
+        <a href="#comentarios">Opiniones</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Banner de Promoción Principal -->
+        <section id="promociones" class="hero-promo">
+            <span class="badge-descuento">🔥 ¡OFERTA POR TIEMPO LIMITADO! 🔥</span>
+            <h2>¡Combo Amazonía con 20% OFF!</h2>
+            <p>Lleva tu pack de <strong>Jugo + Mermelada + Galletas de Arazá</strong> con un súper descuento exclusivo.</p>
+            <p style="margin-top: 0.8rem;">Usa el código: <strong>ARAZAFRESH20</strong> en tu primera compra.</p>
+        </section>
+
+        <!-- Productos -->
+        <section id="productos" style="margin-bottom: 3rem;">
+            <h2 class="section-title">Nuestros Productos en Oferta</h2>
+            <div class="grid-productos">
+                
+                <div class="card-producto">
+                    <span class="tag-oferta">¡2x1 HOY!</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGkS4aXGZK55tbWqpvPzYDs7hO6AaiIhUTgtScFsCiTw&s=10" alt="Jugo Natural de Arazá" class="img-producto">
+                    <h3>Jugo Natural de Arazá</h3>
+                    <p>Bebida refrescante y llena de vitamina C.</p>
+                    <p class="precio"><span class="precio-anterior">$3.200</span> $2.500 COP</p>
+                    <button class="btn-comprar">¡Aprovechar Oferta!</button>
+                </div>
+
+                <div class="card-producto">
+                    <span class="tag-oferta">-15% DESCUENTO</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJVbW8nuYrGglnZYbXhkqP0SNCTSbYxCnjDf-C-kSEBw&s=10" alt="Mermelada Artesanal de Arazá" class="img-producto">
+                    <h3>Mermelada Artesanal</h3>
+                    <p>El punto perfecto entre dulce y acidez para tus tostadas.</p>
+                    <p class="precio"><span class="precio-anterior">$9.500</span> $8.000 COP</p>
+                    <button class="btn-comprar">¡Añadir al Carrito!</button>
+                </div>
+
+                <div class="card-producto">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYGaaQFs74bmJI7Le3RKEZrBpBP1KaGNEBQ8jqVGkn6g&s" alt="Salsa Agridulce de Arazá" class="img-producto">
+                    <h3>Salsa Agridulce de Arazá</h3>
+                    <p>Ideal para acompañar carnes y aperitivos.</p>
+                    <p class="precio">$9.500 COP</p>
+                    <button class="btn-comprar">¡Probar Hoy!</button>
+                </div>
+
+                <div class="card-producto">
+                    <span class="tag-oferta">¡MÁS VENDIDO!</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1oxTtaCgMqBNVEGeV9a-ztVmX1tVFyU7Gsc7scALs7g&s=10" alt="Postre Helado de Arazá" class="img-producto">
+                    <h3>Postre Helado de Arazá</h3>
+                    <p>Cremoso y perfecto para refrescar tu día.</p>
+                    <p class="precio">$4.000 COP</p>
+                    <button class="btn-comprar">¡Pide el Tuyo!</button>
+                </div>
+
+                <div class="card-producto">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7-SI11JfAKrTRDmjjJUjhY9LqV9-Zi-Sk21CIZ1lNBA&s=10" alt="Yogurt de Arazá" class="img-producto">
+                    <h3>Yogurt Natural de Arazá</h3>
+                    <p>Cremoso, probiótico y lleno de sabor exótico.</p>
+                    <p class="precio">$5.000 COP</p>
+                    <button class="btn-comprar">¡Comprar Ahora!</button>
+                </div>
+
+                <div class="card-producto">
+                    <span class="tag-oferta">COMBO 3X2</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNyAm-YbeEcEp3nfIqTnvxo2pHw6lROzl1ywqjPODjdw&s=10" alt="Galletas de Arazá" class="img-producto">
+                    <h3>Galletas Rellenas de Arazá</h3>
+                    <p>Crujientes galleterías con un centro dulce de fruta.</p>
+                    <p class="precio">$6.500 COP</p>
+                    <button class="btn-comprar">¡Llevar Combo!</button>
+                </div>
+
+                <div class="card-producto">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFguRte3s-GmQN7CEDsMLVbzbkGmBm94ZfjZhdqNIfkA&s=10" alt="Té Helado de Arazá" class="img-producto">
+                    <h3>Té Helado con Arazá</h3>
+                    <p>Infusión ligera y digestiva enriquecida con fruta.</p>
+                    <p class="precio">$3.500 COP</p>
+                    <button class="btn-comprar">¡Añadir al Carrito!</button>
+                </div>
+
+                <div class="card-producto">
+                    <span class="tag-oferta">ENVÍO GRATIS</span>
+                    <img src="https://mrbatatacolombia.com/wp-content/uploads/2022/06/pulpa-araza.png" alt="Pulpa Concentrada de Arazá" class="img-producto">
+                    <h3>Pulpa Concentrada (1kg)</h3>
+                    <p>100% fruta natural para preparar tus propias recetas.</p>
+                    <p class="precio"><span class="precio-anterior">$15.000</span> $12.000 COP</p>
+                    <button class="btn-comprar">¡Pide la Tuya!</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Nosotros -->
+        <section id="nosotros" class="info-box">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p>En <strong>ARAZA MIX</strong>, somos un equipo apasionado de trabajadores y cultivadores comprometidos con llevar lo mejor del fruto de arazá a tu mesa. Trabajamos mano a mano con agricultores locales para garantizar procesos sostenibles, ingredientes frescos y la máxima calidad en cada uno de nuestros derivados. ¡Nuestra misión es hacerte sonreír con cada bocado!</p>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog" class="info-box">
+            <h2 class="section-title">Blog ARAZA MIX</h2>
+            <div class="blog-post">
+                <h3>Beneficios del Arazá para tu Salud</h3>
+                <p>Descubre cómo esta fruta exótica aporta antioxidantes, promueve una digestión saludable y fortalece tu sistema inmune...</p>
+            </div>
+            <div class="blog-post">
+                <h3>Receta: Tostadas Gourmet con Mermelada de Arazá</h3>
+                <p>Sorprende a tu familia con un desayuno rápido, nutritivo y delicioso en solo 5 minutos...</p>
+            </div>
+        </section>
+
+        <!-- Opiniones -->
+        <section id="comentarios">
+            <h2 class="section-title">Clientes Satisfechos</h2>
+            <div class="comentario">
+                <p class="comentario-autor">★★★★★ - María Camila R.</p>
+                <p>"¡Aproveché la oferta del 2x1 en jugos y fue genial! El sabor es delicioso y el envío fue impecable."</p>
+            </div>
+            <div class="comentario">
+                <p class="comentario-autor">★★★★★ - Carlos A.</p>
+                <p>"El combo Amazonía vale totalmente la pena. Excelente relación calidad-precio y la mermelada es increíble."</p>
+            </div>
+            <div class="comentario">
+                <p class="comentario-autor">★★★★★ - Diana P.</p>
+                <p>"Compré con el código de descuento y me llegó súper rápido. 100% recomendados."</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ARAZA MIX - Todos los derechos reservados.</p>
+        <p>¡Garantía de satisfacción y envío seguro en cada compra!</p>
+    </footer>
+
+</body>
+</html>
