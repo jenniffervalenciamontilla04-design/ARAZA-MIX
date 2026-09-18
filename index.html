@@ -284,6 +284,28 @@
             color: var(--verde-menta-oscuro);
         }
 
+        /* Estilo para el contenedor del video de YouTube */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
         /* Pie de página */
         footer {
             background-color: #263238;
@@ -310,6 +332,7 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#blog">Blog</a>
         <a href="#comentarios">Opiniones</a>
+        <a href="#video">Video</a>
     </nav>
 
     <div class="container">
@@ -419,7 +442,7 @@
         </section>
 
         <!-- Opiniones -->
-        <section id="comentarios">
+        <section id="comentarios" style="margin-bottom: 2rem;">
             <h2 class="section-title">Clientes Satisfechos</h2>
             <div class="comentario">
                 <p class="comentario-autor">★★★★★ - María Camila R.</p>
@@ -433,6 +456,17 @@
                 <p class="comentario-autor">★★★★★ - Diana P.</p>
                 <p>"Compré con el código de descuento y me llegó súper rápido. 100% recomendados."</p>
             </div>
+        </section>
+
+        <!-- Video de YouTube Integrado -->
+        <section id="video" class="info-box">
+            <h2 class="section-title">Conoce más sobre el Arazá</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Q2SIzsxufYY" title="Video sobre el Arazá" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; font-weight: 600;">
+                Sumérgete en la magia de la Amazonía y descubre en este video cómo cultivamos y transformamos esta maravillosa fruta exótica para llevarla directo a tu paladar con todo su frescor y nutrientes.
+            </p>
         </section>
 
     </div>
